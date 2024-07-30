@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffec9f4b;
+  min-height: calc(100vh - 180px);
+}
+
+.loading {
+  font-size: 2em;
+  color: #555;
+  margin-top: 50px;
+}
+
+.loading {
+  font-size: 2em;
+  color: #555;
+  margin-top: 50px;
+}
+
+.pokemon-card.normal {
+  border: 8px solid #a8a77a;
+  background-color: #f5f5dc;
+}
+
+.pokemon-card.fighting {
+  border: 8px solid #c22e28;
+  background-color: #f4cccc;
+}
+
+.pokemon-card.flying {
+  border: 8px solid #a98ff3;
+  background-color: #eae7ff;
+}
+
+.pokemon-card.poison {
+  border: 8px solid #a33ea1;
+  background-color: #f2e6f3;
+}
+
+.pokemon-card.ground {
+  border: 8px solid #e2bf65;
+  background-color: #f9f3cf;
+}
+
+.pokemon-card.rock {
+  border: 8px solid #b6a136;
+  background-color: #f4f1d6;
+}
+
+.pokemon-card.bug {
+  border: 8px solid #a6b91a;
+  background-color: #eaf2c9;
+}
+
+.pokemon-card.ghost {
+  border: 8px solid #735797;
+  background-color: #ede6f5;
+}
+
+.pokemon-card.steel {
+  border: 8px solid #b7b7ce;
+  background-color: #f0f0f5;
+}
+
+.pokemon-card.fire {
+  border: 8px solid #ee8130;
+  background-color: #fde7d9;
+}
+
+.pokemon-card.water {
+  border: 8px solid #6390f0;
+  background-color: #e5ecf4;
+}
+
+.pokemon-card.grass {
+  border: 8px solid #7ac74c;
+  background-color: #e0f7df;
+}
+
+.pokemon-card.electric {
+  border: 8px solid #f7d02c;
+  background-color: #fef8e0;
+}
+
+.pokemon-card.psychic {
+  border: 8px solid #f95587;
+  background-color: #fde6ef;
+}
+
+.pokemon-card.ice {
+  border: 8px solid #96d9d6;
+  background-color: #e5f6f5;
+}
+
+.pokemon-card.dragon {
+  border: 8px solid #6f35fc;
+  background-color: #ebe3ff;
+}
+
+.pokemon-card.dark {
+  border: 8px solid #705746;
+  background-color: #ebe6e1;
+}
+
+.pokemon-card.fairy {
+  border: 8px solid #d685ad;
+  background-color: #fde9f1;
+}
+
+.pokemon-card.stellar {
+  border: 8px solid #ffd700;
+  background-color: #fffde5;
+}
+
+.pokemon-card.error {
+  text-align: center;
+  color: white;
+  border: 8px solid #ff0000;
+  background-color: #ff000079;
+}
+
+.paginacion {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  background-color: #ffec9f;
+  height: 100px;
+}
+
+.btn {
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  color: #333;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.Disable:read-only {
+  background-color: #ffffff81;
+  cursor: not-allowed;
+}
+
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 310px;
+  height: 310px;
+  padding: 15px;
+  transition: transform 0.2s ease-in-out;
+  gap: 12px;
+}
+
+.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+  width: 310px;
+  height: 310px;
+  padding: 15px;
+  transition: transform 0.2s ease-in-out, width 0.2s ease-in-out,
+    height 0.2s ease-in-out;
+}
+
+.pokemon-card h2 {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.habilities {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.stat-item h3 {
+  margin-right: 5px;
+  font-size: 1em;
+  color: #555;
+}
+
+.stat-item p {
+  margin: 0;
+  font-size: 1em;
+  color: #777;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-hability {
+  background-color: #80808028;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-hability:hover {
+  background-color: #696969;
+  transform: scale(1.1);
+}
+
+.btn-hability:active {
+  background-color: #5c5c5c;
+  transform: scale(1);
+}
+
+.pokemon-card,
+.open {
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    border-radius 0.3s ease-in-out;
+}
+
+.onePokemon {
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-hability.favorite{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}

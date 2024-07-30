@@ -1,0 +1,22 @@
+/* Estilo para la navbar */
+.navbar {
+  background-color: #ffec9f;
+}
+
+.navbar-toggler {
+  border-color: #fff; /* Color del borde del botón de la navbar-toggler */
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #ffec9f; /* Color de fondo al pasar el ratón */
+  color: #000000; /* Color del texto al pasar el ratón */
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.dropdown-menu.show {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
