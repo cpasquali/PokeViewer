@@ -43,7 +43,7 @@ export const NavbarFavoritePokemon = ({
           </div>
           <div className="offcanvas-body ">
             <ul className="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3">
-              {favoritePokemon ? (
+              {favoritePokemon.length !== 0 ? (
                 favoritePokemon.map((pokemon) => (
                   <PokemonCard
                     key={pokemon}
@@ -52,7 +52,7 @@ export const NavbarFavoritePokemon = ({
                   />
                 ))
               ) : (
-                <h2>NO SE HAN AGREGADO POKEMONTES TODAVIA D:</h2>
+                <h2>NO SE HAN AGREGADO POKEMONES TODAVIA D:</h2>
               )}
             </ul>
           </div>
