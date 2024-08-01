@@ -7,11 +7,8 @@ export const NavbarFavoritePokemon = ({
   removeFavoritePokemon,
 }) => {
   return (
-    <nav className="navbar">
+    <nav className="navbarFavo floating-navbar">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Favorite Pokemon
-        </a>
         <button
           className="navbar-toggler"
           type="button"
