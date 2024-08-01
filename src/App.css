@@ -220,7 +220,6 @@ main {
 }
 
 .btn-hability {
-  background-color: #80808028;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -233,6 +232,82 @@ main {
 .btn-hability:hover {
   background-color: #696969;
   transform: scale(1.1);
+}
+
+.btn-hability.normal {
+  background-color: #a8a77a;
+}
+
+.btn-hability.fighting {
+  background-color: #c22e28;
+}
+
+.btn-hability.flying {
+  background-color: #a98ff3;
+}
+
+.btn-hability.poison {
+  background-color: #a33ea1;
+}
+
+.btn-hability.ground {
+  background-color: #e2bf65;
+}
+
+.btn-hability.rock {
+  background-color: #b6a136;
+}
+
+.btn-hability.bug {
+  background-color: #a6b91a;
+}
+
+.btn-hability.ghost {
+  background-color: #735797;
+}
+
+.btn-hability.steel {
+  background-color: #b7b7ce;
+}
+
+.btn-hability.fire {
+  background-color: #ee8130;
+}
+
+.btn-hability.water {
+  background-color: #6390f0;
+}
+
+.btn-hability.grass {
+  background-color: #7ac74c;
+}
+
+.btn-hability.electric {
+  background-color: #f7d02c;
+}
+
+.btn-hability.psychic {
+  background-color: #f95587;
+}
+
+.btn-hability.ice {
+  background-color: #96d9d6;
+}
+
+.btn-hability.dragon {
+  background-color: #6f35fc;
+}
+
+.btn-hability.dark {
+  background-color: #705746;
+}
+
+.btn-hability.fairy {
+  background-color: #d685ad;
+}
+
+.btn-hability.stellar {
+  background-color: #ffd700;
 }
 
 .btn-hability:active {
@@ -251,9 +326,85 @@ main {
   align-items: center;
 }
 
-.btn-hability.favorite{
+.btn-hability.favorite {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
+}
+
+.btn-hability.favorite.normal {
+  background-color: #a8a77a;
+}
+
+.btn-hability.favorite.fighting {
+  background-color: #c22e28;
+}
+
+.btn-hability.favorite.flying {
+  background-color: #a98ff3;
+}
+
+.btn-hability.favorite.poison {
+  background-color: #a33ea1;
+}
+
+.btn-hability.favorite.ground {
+  background-color: #e2bf65;
+}
+
+.btn-hability.favorite.rock {
+  background-color: #b6a136;
+}
+
+.btn-hability.favorite.bug {
+  background-color: #a6b91a;
+}
+
+.btn-hability.favorite.ghost {
+  background-color: #735797;
+}
+
+.btn-hability.favorite.steel {
+  background-color: #b7b7ce;
+}
+
+.btn-hability.favorite.fire {
+  background-color: #ee8130;
+}
+
+.btn-hability.favorite.water {
+  background-color: #6390f0;
+}
+
+.btn-hability.favorite.grass {
+  background-color: #7ac74c;
+}
+
+.btn-hability.favorite.electric {
+  background-color: #f7d02c;
+}
+
+.btn-hability.favorite.psychic {
+  background-color: #f95587;
+}
+
+.btn-hability.favorite.ice {
+  background-color: #96d9d6;
+}
+
+.btn-hability.favorite.dragon {
+  background-color: #6f35fc;
+}
+
+.btn-hability.favorite.dark {
+  background-color: #705746;
+}
+
+.btn-hability.favorite.fairy {
+  background-color: #d685ad;
+}
+
+.btn-hability.favorite.stellar {
+  background-color: #ffd700;
 }

@@ -57,7 +57,10 @@ export const PokemonCard = ({
             </div>
           ))}
         </section>
-        <button className="btn-hability" onClick={() => setHabilitiesOn(false)}>
+        <button
+          className={`btn-hability ${pokemonData.types[0].type.name}`}
+          onClick={() => setHabilitiesOn(false)}
+        >
           See Pokemon
         </button>
       </section>
@@ -74,19 +77,22 @@ export const PokemonCard = ({
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       )}
       <h2>{pokemonData.name.toUpperCase()}</h2>
-      <button className="btn-hability" onClick={() => setHabilitiesOn(true)}>
+      <button
+        className={`btn-hability ${pokemonData.types[0].type.name}`}
+        onClick={() => setHabilitiesOn(true)}
+      >
         See Skills
       </button>
       {addFavoritePokemon ? (
         <button
-          className="btn-hability favorite"
+          className={`btn-hability favorite ${pokemonData.types[0].type.name}`}
           onClick={() => addFavoritePokemon(pokemonData.name)}
         >
           <ion-icon name="heart-outline"></ion-icon>
         </button>
       ) : deleteFavoritePokemon ? (
         <button
-          className="btn-hability favorite"
+          className={`btn-hability favorite ${pokemonData.types[0].type.name}`}
           onClick={() => deleteFavoritePokemon(pokemonData.name)}
         >
           <ion-icon name="heart-dislike-outline"></ion-icon>
