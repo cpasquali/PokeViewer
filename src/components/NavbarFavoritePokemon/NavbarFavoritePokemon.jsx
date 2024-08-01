@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PokemonCard } from "../Pokemons/PokemonCard";
 import "./NavbarFavoritePokemon.css";
 
@@ -6,6 +6,13 @@ export const NavbarFavoritePokemon = ({
   favoritePokemon,
   removeFavoritePokemon,
 }) => {
+
+  const [countFavorite, setCountFavorite] = useState(0)
+
+  useEffect(()=>{
+    setCountFavorite(favoritePokemon.length)
+  }, [favoritePokemon])
+
   return (
     <nav className="navbarFavo floating-navbar">
       <div className="container-fluid">
@@ -19,6 +26,7 @@ export const NavbarFavoritePokemon = ({
         >
           <span className="toggleBtn">
             <ion-icon name="bookmark-outline"></ion-icon>
+            <p className="countFavorite">{countFavorite}</p>
           </span>
         </button>
         <div

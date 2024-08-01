@@ -11,6 +11,11 @@
   background-color: #ffec9f;
 }
 
+.countFavorite{
+  position: relative;
+  font-size: 16px;
+}
+
 .floating-navbar {
   position: fixed;
   top: 200px;
