@@ -97,6 +97,18 @@ export const Navbar = ({ setType, setSearchPokemon }) => {
                 </li>
               </ul>
             </li>
+            <li className="nav-item"> 
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                onClick={() => setSearchPokemon(null)}
+              >
+                <ion-icon name="sunny-outline"></ion-icon>
+              </a>
+            </li>
           </ul>
           <form className="d-flex" role="search">
             <input

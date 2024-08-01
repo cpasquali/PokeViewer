@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "wouter";
 import PokemonCardSkeleton from "../../skeletons/PokemonCardSkeleton";
 import "../../App.css";
 
