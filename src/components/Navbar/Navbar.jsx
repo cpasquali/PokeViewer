@@ -35,9 +35,8 @@ export const Navbar = ({ setType, setSearchPokemon }) => {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand" href="/">
-          Pokeconi
+          PokeViewer
         </Link>
-        <h2>😎</h2>
         <button
           className="navbar-toggler"
           type="button"
