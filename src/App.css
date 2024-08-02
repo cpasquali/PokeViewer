@@ -10,8 +10,8 @@ main {
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  background-color: #ffec9f4b;
-  min-height: calc(100vh - 180px);
+  background-color: #ffec9fa5;
+  min-height: calc(100vh - 160px);
 }
 
 .loading {
@@ -137,6 +137,11 @@ main {
   height: 100px;
 }
 
+.paginacion.dark{
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
 .btn {
   background-color: #ffcc00;
   border: none;
@@ -146,6 +151,11 @@ main {
   font-size: 1em;
   padding: 10px 20px;
   transition: background-color 0.3s ease-in-out;
+}
+
+.btn.dark{
+  color: #ffffff;
+  background-color: #002f6c;
 }
 
 .Disable:read-only {
@@ -408,3 +418,8 @@ main {
 .btn-hability.favorite.stellar {
   background-color: #ffd700;
 }
+
+main.dark{
+  background-color: #1e2a38;
+}
+

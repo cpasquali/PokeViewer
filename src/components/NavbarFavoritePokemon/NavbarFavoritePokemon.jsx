@@ -5,6 +5,7 @@ import "./NavbarFavoritePokemon.css";
 export const NavbarFavoritePokemon = ({
   favoritePokemon,
   removeFavoritePokemon,
+  theme
 }) => {
 
   const [countFavorite, setCountFavorite] = useState(0)
@@ -24,7 +25,7 @@ export const NavbarFavoritePokemon = ({
           aria-controls="offcanvasDarkNavbar"
           aria-label="Toggle navigation"
         >
-          <span className="toggleBtn">
+          <span className={`toggleBtn ${theme}`}>
             <ion-icon name="bookmark-outline"></ion-icon>
             <p className="countFavorite">{countFavorite}</p>
           </span>

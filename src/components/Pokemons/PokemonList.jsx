@@ -6,7 +6,7 @@ import { STATUS, MAINCLASES } from "../../utils/utils";
 import PokemonListSkeleton from "../../skeletons/PokemonListSkeleton";
 import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePokemon";
 
-export const PokemonList = ({ type, searchPokemon }) => {
+export const PokemonList = ({ type, searchPokemon, theme }) => {
   const pokemonsSave = () => {
     const data = localStorage.getItem("localPokemons");
     return data ? JSON.parse(data) : [];
@@ -121,27 +121,28 @@ export const PokemonList = ({ type, searchPokemon }) => {
       <NavbarFavoritePokemon
         favoritePokemon={favoritesPokemons}
         removeFavoritePokemon={removeFavoritePokemon}
+        theme={theme}
       />
-      <main className={classOnePokemon}>
+      <main className={`${classOnePokemon} ${theme}`}>
         {searchPokemon && pokemonList ? (
           <PokemonCard name={pokemonList} />
         ) : (
           <>
-            {" "}
             {pokemonList.map((pokemon) => (
               <PokemonCard
                 key={pokemon.name}
                 name={pokemon.name}
                 addFavoritePokemon={addFavoritePokemon}
+                theme={theme}
               />
             ))}
           </>
         )}
       </main>
-      <section className="paginacion">
+      <section className={`paginacion ${theme}`}>
         <button
           onClick={backPage}
-          className={`btn ${classBack}`}
+          className={`btn ${classBack} ${theme}`}
           disabled={disabledBackButton}
         >
           Back
@@ -149,7 +150,7 @@ export const PokemonList = ({ type, searchPokemon }) => {
         <p>{countPage}</p>
         <button
           onClick={nextPage}
-          className={`btn ${classNext}`}
+          className={`btn ${classNext} ${theme}`}
           disabled={disabledNextButton}
         >
           Next

@@ -10,14 +10,15 @@ import { PokemonList } from "./components/Pokemons/PokemonList";
 function App() {
   const [type, setType] = useState(null);
   const [searchPokemon, setSearchPokemon] = useState(null);
+  const [theme, setTheme] = useState("light")
   return (
     <>
-      <Navbar setType={setType} setSearchPokemon={setSearchPokemon} />
+      <Navbar setType={setType} setSearchPokemon={setSearchPokemon} setTheme={setTheme} theme={theme}/>
       <Switch>
         <Route
           path="/"
           component={() => (
-            <PokemonList type={type} searchPokemon={searchPokemon} />
+            <PokemonList type={type} searchPokemon={searchPokemon} theme={theme}/>
           )}
         />
         <Route path="/pokemon/:id" component={PokemonDetails} />

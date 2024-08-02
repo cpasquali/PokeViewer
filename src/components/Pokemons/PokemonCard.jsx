@@ -6,6 +6,7 @@ export const PokemonCard = ({
   name,
   addFavoritePokemon,
   deleteFavoritePokemon,
+  theme
 }) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -70,7 +71,7 @@ export const PokemonCard = ({
     <section
       className={`pokemon-card ${
         pokemonData.types ? pokemonData.types[0].type.name : ""
-      }`}
+      } ${theme}`}
     >
       {pokemonData.sprites && (
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />

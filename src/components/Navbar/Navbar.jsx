@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import { Link } from "wouter";
 
-export const Navbar = ({ setType, setSearchPokemon }) => {
+export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
   const API_URL = "https://pokeapi.co/api/v2/type/";
   const [types, setTypes] = useState([]);
   const [value, setValue] = useState("");
@@ -27,14 +27,22 @@ export const Navbar = ({ setType, setSearchPokemon }) => {
     setType(null);
   };
 
+  const toggleTheme = () => {
+    if(theme === "light"){
+    setTheme("dark")
+    } else{
+      setTheme("light")
+    }
+  }
+
   useEffect(() => {
     getType();
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg">
+    <nav className={`navbar navbar-expand-lg ${theme}`}>
       <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
+        <Link className={`navbar-brand ${theme}`} to="/">
           PokeViewer
         </Link>
         <button
@@ -51,13 +59,13 @@ export const Navbar = ({ setType, setSearchPokemon }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
+              <Link className={`nav-link active ${theme}`} aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className={`nav-link dropdown-toggle ${theme}`}
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -99,14 +107,16 @@ export const Navbar = ({ setType, setSearchPokemon }) => {
             </li>
             <li className="nav-item"> 
               <a
-                className="nav-link dropdown-toggle"
+                className={`nav-link toggle ${theme}`}
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                onClick={() => setSearchPokemon(null)}
+                onClick={toggleTheme}
               >
-                <ion-icon name="sunny-outline"></ion-icon>
+                {
+                  theme === "light" ? (<ion-icon name="sunny-outline"></ion-icon>) : (<ion-icon name="moon-outline"></ion-icon>)
+                }
               </a>
             </li>
           </ul>
