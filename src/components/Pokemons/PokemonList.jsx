@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { STATUS, MAINCLASES } from "../../utils/utils";
 import PokemonListSkeleton from "../../skeletons/PokemonListSkeleton";
 import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePokemon";
+import { Paginacion } from "../Paginacion/Paginacion";
 
 export const PokemonList = ({ type, searchPokemon, theme }) => {
   const pokemonsSave = () => {
@@ -139,23 +140,16 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
           </>
         )}
       </main>
-      <section className={`paginacion ${theme}`}>
-        <button
-          onClick={backPage}
-          className={`btn ${classBack} ${theme}`}
-          disabled={disabledBackButton}
-        >
-          Back
-        </button>
-        <p>{countPage}</p>
-        <button
-          onClick={nextPage}
-          className={`btn ${classNext} ${theme}`}
-          disabled={disabledNextButton}
-        >
-          Next
-        </button>
-      </section>
+      <Paginacion
+        theme={theme}
+        backPage={backPage}
+        nextPage={nextPage}
+        classNext={classNext}
+        classBack={classBack}
+        disabledBackButton={disabledBackButton}
+        disabledNextButton={disabledNextButton}
+        countPage={countPage}
+      />
     </>
   );
 };
