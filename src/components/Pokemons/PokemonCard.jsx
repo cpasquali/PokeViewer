@@ -12,7 +12,8 @@ export const PokemonCard = ({
   const [isLoading, setIsLoading] = useState(true);
   const [habilitiesOn, setHabilitiesOn] = useState(false);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/${name}/`;
-  const pokemonType = pokemonData ? pokemonData.types[0].type.name : "";
+  const pokemonType =
+    pokemonData && pokemonData.types ? pokemonData.types[0].type.name : "";
 
   const getDataPokemon = async () => {
     setIsLoading(true);
@@ -39,7 +40,7 @@ export const PokemonCard = ({
     return <PokemonCardSkeleton />;
   }
 
-  if (!pokemonData || !pokemonData.name) {
+  if (!pokemonData || !pokemonData.name || !pokemonData.types) {
     return <h2 className="pokemon-card error">No data available</h2>;
   }
 
