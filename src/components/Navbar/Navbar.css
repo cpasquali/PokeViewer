@@ -1,15 +1,14 @@
-/* Estilo para la navbar en modo claro */
 .navbar {
   background-color: #ffec9f;
 }
 
 .navbar-toggler {
-  border-color: #fff; /* Color del borde del botón de la navbar-toggler */
+  border-color: #fff;
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #ffec9f; /* Color de fondo al pasar el ratón */
-  color: #000000; /* Color del texto al pasar el ratón */
+  background-color: #ffec9f;
+  color: #000000;
 }
 
 .dropdown-item {
@@ -21,30 +20,29 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* Estilo para la navbar en modo oscuro */
 nav.nigth {
-  color: #ffffff; /* Color del texto en modo oscuro */
-  background-color: #1a1a2e; /* Fondo oscuro para el modo oscuro */
+  color: #ffffff;
+  background-color: #1a1a2e;
 }
 
 .navbar.navbar-expand-lg.nigth {
   color: #ffffff;
 }
-/* Estilo específico para los elementos en el modo oscuro */
+
 nav.nigth .navbar-toggler {
-  border-color: #ffffff; /* Borde blanco en modo oscuro */
+  border-color: #ffffff;
 }
 
 nav.nigth .dropdown-menu {
-  background-color: #1a1a2e; /* Fondo oscuro para el menú desplegable */
+  background-color: #1a1a2e;
 }
 
 nav.nigth .dropdown-item {
-  color: #ffffff; /* Color del texto en el menú desplegable */
+  color: #ffffff;
 }
 
 nav.nigth .dropdown-item:hover {
-  background-color: #333333; /* Color de fondo al pasar el ratón en modo oscuro */
+  background-color: #333333;
 }
 
 .nav-link.active.nigth,
