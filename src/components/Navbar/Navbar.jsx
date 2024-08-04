@@ -28,12 +28,12 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
   };
 
   const toggleTheme = () => {
-    if(theme === "light"){
-    setTheme("dark")
-    } else{
-      setTheme("light")
+    if (theme === "light") {
+      setTheme("nigth");
+    } else {
+      setTheme("light");
     }
-  }
+  };
 
   useEffect(() => {
     getType();
@@ -59,7 +59,11 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link active ${theme}`} aria-current="page" to="/">
+              <Link
+                className={`nav-link active ${theme}`}
+                aria-current="page"
+                to="/"
+              >
                 Home
               </Link>
             </li>
@@ -105,7 +109,7 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
                 </li>
               </ul>
             </li>
-            <li className="nav-item"> 
+            <li className="nav-item">
               <a
                 className={`nav-link toggle ${theme}`}
                 href="#"
@@ -114,9 +118,11 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
                 aria-expanded="false"
                 onClick={toggleTheme}
               >
-                {
-                  theme === "light" ? (<ion-icon name="sunny-outline"></ion-icon>) : (<ion-icon name="moon-outline"></ion-icon>)
-                }
+                {theme === "light" ? (
+                  <ion-icon name="sunny-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="moon-outline"></ion-icon>
+                )}
               </a>
             </li>
           </ul>

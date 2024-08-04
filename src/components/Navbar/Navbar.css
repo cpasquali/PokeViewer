@@ -22,36 +22,39 @@
 }
 
 /* Estilo para la navbar en modo oscuro */
-nav.dark {
+nav.nigth {
   color: #ffffff; /* Color del texto en modo oscuro */
   background-color: #1a1a2e; /* Fondo oscuro para el modo oscuro */
 }
 
-.navbar.navbar-expand-lg.dark{
+.navbar.navbar-expand-lg.nigth {
   color: #ffffff;
 }
 /* Estilo específico para los elementos en el modo oscuro */
-nav.dark .navbar-toggler {
+nav.nigth .navbar-toggler {
   border-color: #ffffff; /* Borde blanco en modo oscuro */
 }
 
-nav.dark .dropdown-menu {
+nav.nigth .dropdown-menu {
   background-color: #1a1a2e; /* Fondo oscuro para el menú desplegable */
 }
 
-nav.dark .dropdown-item {
+nav.nigth .dropdown-item {
   color: #ffffff; /* Color del texto en el menú desplegable */
 }
 
-nav.dark .dropdown-item:hover {
+nav.nigth .dropdown-item:hover {
   background-color: #333333; /* Color de fondo al pasar el ratón en modo oscuro */
 }
 
-.nav-link.active.dark, .container-fluid .dark, .nav-link.dropdown-toggle.dark, .nav-link.dark{
+.nav-link.active.nigth,
+.container-fluid .nigth,
+.nav-link.dropdown-toggle.nigth,
+.nav-link.nigth {
   color: white;
 }
 
-.toggle{
+.toggle {
   display: flex;
   align-items: center;
   justify-content: center;

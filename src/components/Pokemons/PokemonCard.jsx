@@ -6,12 +6,13 @@ export const PokemonCard = ({
   name,
   addFavoritePokemon,
   deleteFavoritePokemon,
-  theme
+  theme,
 }) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [habilitiesOn, setHabilitiesOn] = useState(false);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/${name}/`;
+  const pokemonType = pokemonData ? pokemonData.types[0].type.name : "";
 
   const getDataPokemon = async () => {
     setIsLoading(true);
@@ -44,11 +45,7 @@ export const PokemonCard = ({
 
   if (habilitiesOn) {
     return (
-      <section
-        className={`pokemon-card ${
-          pokemonData.types ? pokemonData.types[0].type.name : ""
-        } open`}
-      >
+      <section className={`pokemon-card ${pokemonType} open`}>
         <section className="habilities">
           {pokemonData.stats.map((stat, index) => (
             <div key={index} className="stat-item">
@@ -58,7 +55,7 @@ export const PokemonCard = ({
           ))}
         </section>
         <button
-          className={`btn-hability ${pokemonData.types[0].type.name}`}
+          className={`btn-hability ${pokemonType}`}
           onClick={() => setHabilitiesOn(false)}
         >
           See Pokemon
@@ -68,31 +65,27 @@ export const PokemonCard = ({
   }
 
   return (
-    <section
-      className={`pokemon-card ${
-        pokemonData.types ? pokemonData.types[0].type.name : ""
-      } ${theme}`}
-    >
+    <section className={`pokemon-card ${pokemonType} ${theme}`}>
       {pokemonData.sprites && (
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       )}
       <h2>{pokemonData.name.toUpperCase()}</h2>
       <button
-        className={`btn-hability ${pokemonData.types[0].type.name}`}
+        className={`btn-hability ${pokemonType}`}
         onClick={() => setHabilitiesOn(true)}
       >
         See Skills
       </button>
       {addFavoritePokemon ? (
         <button
-          className={`btn-hability favorite ${pokemonData.types[0].type.name}`}
+          className={`btn-hability favorite ${pokemonType}`}
           onClick={() => addFavoritePokemon(pokemonData.name)}
         >
           <ion-icon name="heart-outline"></ion-icon>
         </button>
       ) : deleteFavoritePokemon ? (
         <button
-          className={`btn-hability favorite ${pokemonData.types[0].type.name}`}
+          className={`btn-hability favorite ${pokemonType}`}
           onClick={() => deleteFavoritePokemon(pokemonData.name)}
         >
           <ion-icon name="heart-dislike-outline"></ion-icon>
