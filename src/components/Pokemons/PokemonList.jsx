@@ -139,14 +139,23 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
           )
         ) : (
           <>
-            {pokemonList.map((pokemon) => (
-              <PokemonCard
-                key={pokemon.name}
-                name={pokemon.name}
-                addFavoritePokemon={addFavoritePokemon}
-                theme={theme}
-              />
-            ))}
+            {pokemonList.map((pokemon) =>
+              favoritesPokemons.includes(pokemon.name) ? (
+                <PokemonCard
+                  key={pokemon.name}
+                  name={pokemon.name}
+                  deleteFavoritePokemon={removeFavoritePokemon}
+                  theme={theme}
+                />
+              ) : (
+                <PokemonCard
+                  key={pokemon.name}
+                  name={pokemon.name}
+                  addFavoritePokemon={addFavoritePokemon}
+                  theme={theme}
+                />
+              )
+            )}
           </>
         )}
       </main>
