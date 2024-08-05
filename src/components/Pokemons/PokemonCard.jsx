@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PokemonCardSkeleton from "../../skeletons/PokemonCardSkeleton";
+import { ProgresBar } from "./ProgressBarr";
 import "../../App.css";
 
 export const PokemonCard = ({
@@ -51,7 +52,7 @@ export const PokemonCard = ({
           {pokemonData.stats.map((stat, index) => (
             <div key={index} className="stat-item">
               <h3>{stat.stat.name}</h3>
-              <p>{stat.base_stat}</p>
+              <h3>{stat.base_stat}</h3>
             </div>
           ))}
         </section>
