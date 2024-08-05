@@ -25,6 +25,7 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
     e.preventDefault();
     setSearchPokemon(value.toLowerCase());
     setType(null);
+    setValue("");
   };
 
   const toggleTheme = () => {
@@ -133,6 +134,7 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
               placeholder="Search"
               aria-label="Search"
               onChange={(e) => setValue(e.target.value)}
+              value={value}
             />
             <button className="btn btn-outline-success" onClick={handleInput}>
               Search
