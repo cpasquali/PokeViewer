@@ -5,14 +5,13 @@ import "./NavbarFavoritePokemon.css";
 export const NavbarFavoritePokemon = ({
   favoritePokemon,
   removeFavoritePokemon,
-  theme
+  theme,
 }) => {
+  const [countFavorite, setCountFavorite] = useState(0);
 
-  const [countFavorite, setCountFavorite] = useState(0)
-
-  useEffect(()=>{
-    setCountFavorite(favoritePokemon.length)
-  }, [favoritePokemon])
+  useEffect(() => {
+    setCountFavorite(favoritePokemon.length);
+  }, [favoritePokemon]);
 
   return (
     <nav className="navbarFavo floating-navbar">
