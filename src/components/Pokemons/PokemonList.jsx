@@ -126,7 +126,17 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
       />
       <main className={`${classOnePokemon} ${theme}`}>
         {searchPokemon && pokemonList ? (
-          <PokemonCard name={pokemonList} />
+          favoritesPokemons.includes(pokemonList) ? (
+            <PokemonCard
+              name={pokemonList}
+              deleteFavoritePokemon={removeFavoritePokemon}
+            />
+          ) : (
+            <PokemonCard
+              name={pokemonList}
+              addFavoritePokemon={addFavoritePokemon}
+            />
+          )
         ) : (
           <>
             {pokemonList.map((pokemon) => (
