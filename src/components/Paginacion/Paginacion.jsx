@@ -1,4 +1,5 @@
 import "./Paginacion.css";
+import { PAGINACIONOFF } from "../../utils/utils";
 
 export const Paginacion = ({
   theme,
@@ -9,9 +10,13 @@ export const Paginacion = ({
   disabledBackButton,
   disabledNextButton,
   countPage,
+  paginacionOff
 }) => {
+
+  const classPaginacion = paginacionOff ? PAGINACIONOFF.TRUE : `paginacion ${theme}`
+
   return (
-    <section className={`paginacion ${theme}`}>
+    <section className={classPaginacion}>
       <button
         onClick={backPage}
         className={`btn ${classBack} ${theme}`}

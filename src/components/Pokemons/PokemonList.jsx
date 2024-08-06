@@ -18,6 +18,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isOnePokemon, setIsOnePokemon] = useState(false);
+  const [paginacionOff, setPaginacionOff] = useState(false)
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${count}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
@@ -81,6 +82,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
       } else if (searchPokemon) {
         saveData = data.name;
         setIsOnePokemon(true);
+        setPaginacionOff(true)
       } else {
         saveData = data.results;
       }
@@ -174,6 +176,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
         )}
       </main>
       <Paginacion
+        paginacionOff={paginacionOff}
         theme={theme}
         backPage={backPage}
         nextPage={nextPage}

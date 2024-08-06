@@ -376,10 +376,14 @@ main.nigth {
 
 .onePokemon {
   display: flex;
-  min-height: calc(100vh - 145px);
+  height: 100vh;
   align-items: center;
 }
 
 .hide-scrollbar {
   overflow-y: hidden;
+}
+
+.paginacionOff{
+  display: none;
 }
