@@ -19,6 +19,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isOnePokemon, setIsOnePokemon] = useState(false);
   const [paginacionOff, setPaginacionOff] = useState(false)
+  const [error, setError] = useState(false)
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${count}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
@@ -88,6 +89,8 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
       }
       setPokemonList(saveData);
     } catch (error) {
+      setError(true)
+      setPaginacionOff(true)
       console.error("Error fetching data...", error);
       setPokemonList([]);
     } finally {
@@ -112,12 +115,11 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
     }
 
     return () => {
-      // Limpiar la clase al desmontar el componente
       document.body.classList.remove("hide-scrollbar");
     };
   }, [isOnePokemon]);
 
-  const classOnePokemon = isOnePokemon ? MAINCLASES.TRUE : MAINCLASES.FALSE;
+  const classOnePokemon = isOnePokemon || error ? MAINCLASES.TRUE : MAINCLASES.FALSE;
   const classBack =
     countPage === 1 || type || searchPokemon ? STATUS.DISABLED : STATUS.ACTIVE;
   const classNext =
