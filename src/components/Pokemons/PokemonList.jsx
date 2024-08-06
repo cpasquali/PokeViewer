@@ -101,6 +101,20 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
     localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemons));
   }, [favoritesPokemons]);
 
+  useEffect(() => {
+    // Agregar o quitar la clase hide-scrollbar según isOnePokemon
+    if (isOnePokemon) {
+      document.body.classList.add("hide-scrollbar");
+    } else {
+      document.body.classList.remove("hide-scrollbar");
+    }
+
+    return () => {
+      // Limpiar la clase al desmontar el componente
+      document.body.classList.remove("hide-scrollbar");
+    };
+  }, [isOnePokemon]);
+
   const classOnePokemon = isOnePokemon ? MAINCLASES.TRUE : MAINCLASES.FALSE;
   const classBack =
     countPage === 1 || type || searchPokemon ? STATUS.DISABLED : STATUS.ACTIVE;
