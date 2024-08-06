@@ -12,6 +12,7 @@ main {
   padding: 20px;
   background-color: #ffec9fa5;
   min-height: calc(100vh - 160px);
+  margin-top: 50px;
 }
 
 .loading {
