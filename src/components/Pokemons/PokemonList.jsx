@@ -14,26 +14,36 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
     return data ? JSON.parse(data) : [];
   };
 
-  const [count, setCount] = useState(0);
-  const [countPage, setCountPage] = useState(1);
+  const currentPageSave = () => {
+    const dataPage = localStorage.getItem("page")
+    return dataPage ? JSON.parse(dataPage) : 0
+  }
+
+  const countPageSave = () =>{
+    const countPage = localStorage.getItem("countPage")
+    return countPage ? JSON.parse(countPage) : 1
+  }
+
+  const [countPage, setCountPage] = useState(countPageSave);
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isOnePokemon, setIsOnePokemon] = useState(false);
   const [paginacionOff, setPaginacionOff] = useState(false)
   const [error, setError] = useState(false)
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
-  const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${count}&limit=20`;
+  const [currentPage, setCurrentPage] = useState(currentPageSave)
+  const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${currentPage}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
   const API_URL_BY_NAME = `https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`;
   let saveData;
 
   const nextPage = () => {
-    setCount(count + 20);
+    setCurrentPage(currentPage + 20);
     setCountPage(countPage + 1);
   };
 
   const backPage = () => {
-    setCount(count - 20);
+    setCurrentPage(currentPage - 20);
     setCountPage(countPage - 1);
   };
 
@@ -101,11 +111,16 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
 
   useEffect(() => {
     getDataPokemon();
-  }, [count, type]);
+  }, [currentPage, type]);
+
+  useEffect(()=>{
+    localStorage.setItem("page", currentPage)
+  },[currentPage])
 
   useEffect(() => {
     localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemons));
-  }, [favoritesPokemons]);
+    localStorage.setItem("countPage", JSON.stringify(countPage))
+  }, [favoritesPokemons, countPage]);
 
   useEffect(() => {
     // Agregar o quitar la clase hide-scrollbar según isOnePokemon
