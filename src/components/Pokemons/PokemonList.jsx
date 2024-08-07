@@ -38,13 +38,13 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
   let saveData;
 
   const nextPage = () => {
-    setCurrentPage(currentPage + 20);
-    setCountPage(countPage + 1);
+    setCurrentPage((prevCurrentPage) => prevCurrentPage + 20);
+    setCountPage((prevCountPage) => prevCountPage + 1);
   };
 
   const backPage = () => {
-    setCurrentPage(currentPage - 20);
-    setCountPage(countPage - 1);
+    setCurrentPage((prevCurrentPage) => prevCurrentPage - 20);
+    setCountPage((prevCountPage) => prevCountPage - 1);
   };
 
   const addFavoritePokemon = (pokemon) => {
