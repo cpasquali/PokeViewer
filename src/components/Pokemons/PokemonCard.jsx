@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PokemonCardSkeleton from "../../skeletons/PokemonCardSkeleton";
-import { ProgresBar } from "./ProgressBarr";
 import "../../App.css";
 
 export const PokemonCard = ({

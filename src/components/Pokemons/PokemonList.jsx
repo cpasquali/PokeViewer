@@ -6,6 +6,7 @@ import { STATUS, MAINCLASES } from "../../utils/utils";
 import PokemonListSkeleton from "../../skeletons/PokemonListSkeleton";
 import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePokemon";
 import { Paginacion } from "../Paginacion/Paginacion";
+import { Accordion } from "../Accordion/Accordion";
 
 export const PokemonList = ({ type, searchPokemon, theme }) => {
   const pokemonsSave = () => {
@@ -188,6 +189,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
         disabledNextButton={disabledNextButton}
         countPage={countPage}
       />
+      <Accordion />
     </>
   );
 };
