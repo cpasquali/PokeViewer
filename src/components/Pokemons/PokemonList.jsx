@@ -8,8 +8,10 @@ import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePo
 import { Paginacion } from "../Paginacion/Paginacion";
 import { Accordion } from "../Accordion/Accordion";
 import { ThemeContext } from "../../context/ThemeContext";
+import { TypePokemonContext } from "../../context/TypePokemonContext";
+import { SearchPokemonContext } from "../../context/SearchPokemonContext";
 
-export const PokemonList = ({ type, searchPokemon }) => {
+export const PokemonList = () => {
   const pokemonsSave = () => {
     const data = localStorage.getItem("localPokemons");
     return data ? JSON.parse(data) : [];
@@ -34,6 +36,8 @@ export const PokemonList = ({ type, searchPokemon }) => {
   const {theme} = useContext(ThemeContext)
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
   const [currentPage, setCurrentPage] = useState(currentPageSave)
+  const {type} = useContext(TypePokemonContext)
+  const {searchPokemon} = useContext(SearchPokemonContext)
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${currentPage}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
   const API_URL_BY_NAME = `https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`;
@@ -125,7 +129,6 @@ export const PokemonList = ({ type, searchPokemon }) => {
   }, [favoritesPokemons, countPage]);
 
   useEffect(() => {
-    // Agregar o quitar la clase hide-scrollbar según isOnePokemon
     if (isOnePokemon) {
       document.body.classList.add("hide-scrollbar");
     } else {

@@ -7,30 +7,21 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { PokemonDetails } from "./components/Pokemons/PokemonDetails";
 import { PokemonList } from "./components/Pokemons/PokemonList";
 import { ThemeProvider } from "./context/ThemeContext";
+import { TypePokemonProvider } from "./context/TypePokemonContext";
+import { SearchPokemonProvider } from "./context/SearchPokemonContext";
 
 function App() {
-
-  const [type, setType] = useState(null);
-  const [searchPokemon, setSearchPokemon] = useState(null);
-
   return (
   <ThemeProvider>
-      <Navbar
-        setType={setType}
-        setSearchPokemon={setSearchPokemon}
-      />
-      <Switch>
-        <Route
-          path="/"
-          component={() => (
-            <PokemonList
-              type={type}
-              searchPokemon={searchPokemon}
-            />
-          )}
-        />
-        <Route path="/pokemon/:id" component={PokemonDetails} />
-      </Switch>
+    <TypePokemonProvider>
+      <SearchPokemonProvider>
+          <Navbar/>
+          <Switch>
+            <Route path="/" component={PokemonList}/>
+          <Route path="/pokemon/:id" component={PokemonDetails} />
+        </Switch>
+      </SearchPokemonProvider>
+    </TypePokemonProvider>
   </ThemeProvider>
   );
 }

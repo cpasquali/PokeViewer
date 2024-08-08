@@ -2,12 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Navbar.css";
 import { Link } from "wouter";
 import { ThemeContext } from "../../context/ThemeContext";
+import { TypePokemonContext } from "../../context/TypePokemonContext";
+import { SearchPokemonContext } from "../../context/SearchPokemonContext";
 
-export const Navbar = ({ setType, setSearchPokemon }) => {
+export const Navbar = () => {
   const API_URL = "https://pokeapi.co/api/v2/type/";
   const [types, setTypes] = useState([]);
   const [value, setValue] = useState("");
   const {theme, toggleTheme} = useContext(ThemeContext)
+  const { setType} = useContext(TypePokemonContext)
+  const {searchPokemon, setSearchPokemon} = useContext(SearchPokemonContext)
 
   const getType = async () => {
     try {
