@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PokemonCard } from "../Pokemons/PokemonCard";
 import "./NavbarFavoritePokemon.css";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export const NavbarFavoritePokemon = ({
   favoritePokemon,
   removeFavoritePokemon,
-  theme,
 }) => {
   const [countFavorite, setCountFavorite] = useState(0);
+  const {theme} = useContext(ThemeContext)
 
   useEffect(() => {
     setCountFavorite(favoritePokemon.length);

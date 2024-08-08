@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { PokemonCard } from "./PokemonCard";
 import "../../App.css";
 import Swal from "sweetalert2";
-import { STATUS, MAINCLASES } from "../../utils/utils";
+import { STATUS, MAINCLASES, POKEAVATAR } from "../../utils/utils";
 import PokemonListSkeleton from "../../skeletons/PokemonListSkeleton";
 import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePokemon";
 import { Paginacion } from "../Paginacion/Paginacion";
 import { Accordion } from "../Accordion/Accordion";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const PokemonList = ({ type, searchPokemon, theme }) => {
+export const PokemonList = ({ type, searchPokemon }) => {
   const pokemonsSave = () => {
     const data = localStorage.getItem("localPokemons");
     return data ? JSON.parse(data) : [];
@@ -30,6 +31,7 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
   const [isOnePokemon, setIsOnePokemon] = useState(false);
   const [paginacionOff, setPaginacionOff] = useState(false)
   const [error, setError] = useState(false)
+  const {theme} = useContext(ThemeContext)
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
   const [currentPage, setCurrentPage] = useState(currentPageSave)
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${currentPage}&limit=20`;
@@ -156,7 +158,6 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
       <NavbarFavoritePokemon
         favoritePokemon={favoritesPokemons}
         removeFavoritePokemon={removeFavoritePokemon}
-        theme={theme}
       />
       <main className={`${classOnePokemon} ${theme}`}>
         {searchPokemon && pokemonList ? (
@@ -179,14 +180,12 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
                   key={pokemon.name}
                   name={pokemon.name}
                   deleteFavoritePokemon={removeFavoritePokemon}
-                  theme={theme}
                 />
               ) : (
                 <PokemonCard
                   key={pokemon.name}
                   name={pokemon.name}
                   addFavoritePokemon={addFavoritePokemon}
-                  theme={theme}
                 />
               )
             )}
@@ -195,7 +194,6 @@ export const PokemonList = ({ type, searchPokemon, theme }) => {
       </main>
       <Paginacion
         paginacionOff={paginacionOff}
-        theme={theme}
         backPage={backPage}
         nextPage={nextPage}
         classNext={classNext}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import PokemonCardSkeleton from "../../skeletons/PokemonCardSkeleton";
 import "../../App.css";
 
@@ -6,7 +6,6 @@ export const PokemonCard = ({
   name,
   addFavoritePokemon,
   deleteFavoritePokemon,
-  theme,
 }) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -66,7 +65,7 @@ export const PokemonCard = ({
   }
 
   return (
-    <section className={`pokemon-card ${pokemonType} ${theme}`}>
+    <section className={`pokemon-card ${pokemonType}`}>
       {pokemonData.sprites && (
         <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
       )}

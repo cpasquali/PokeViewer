@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Navbar.css";
 import { Link } from "wouter";
+import { ThemeContext } from "../../context/ThemeContext";
 
-export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
+export const Navbar = ({ setType, setSearchPokemon }) => {
   const API_URL = "https://pokeapi.co/api/v2/type/";
   const [types, setTypes] = useState([]);
   const [value, setValue] = useState("");
+  const {theme, toggleTheme} = useContext(ThemeContext)
 
   const getType = async () => {
     try {
@@ -26,14 +28,6 @@ export const Navbar = ({ setType, setSearchPokemon, setTheme, theme }) => {
     setSearchPokemon(value.toLowerCase());
     setType(null);
     setValue("");
-  };
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("nigth");
-    } else {
-      setTheme("light");
-    }
   };
 
   useEffect(() => {

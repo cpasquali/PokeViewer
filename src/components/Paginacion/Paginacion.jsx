@@ -1,8 +1,9 @@
 import "./Paginacion.css";
 import { PAGINACIONOFF } from "../../utils/utils";
+import { ThemeContext } from "../../context/ThemeContext";
+import { useContext } from "react";
 
 export const Paginacion = ({
-  theme,
   backPage,
   nextPage,
   classBack,
@@ -13,6 +14,7 @@ export const Paginacion = ({
   paginacionOff
 }) => {
 
+  const {theme} = useContext(ThemeContext)
   const classPaginacion = paginacionOff ? PAGINACIONOFF.TRUE : `paginacion ${theme}`
 
   return (
