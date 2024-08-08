@@ -11,7 +11,7 @@ export const Navbar = () => {
   const [value, setValue] = useState("");
   const {theme, toggleTheme} = useContext(ThemeContext)
   const { setType} = useContext(TypePokemonContext)
-  const {searchPokemon, setSearchPokemon} = useContext(SearchPokemonContext)
+  const { setSearchPokemon} = useContext(SearchPokemonContext)
 
   const getType = async () => {
     try {

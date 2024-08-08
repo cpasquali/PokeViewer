@@ -15,7 +15,7 @@ function App() {
   <ThemeProvider>
     <TypePokemonProvider>
       <SearchPokemonProvider>
-          <Navbar/>
+        <Navbar/>
           <Switch>
             <Route path="/" component={PokemonList}/>
           <Route path="/pokemon/:id" component={PokemonDetails} />
