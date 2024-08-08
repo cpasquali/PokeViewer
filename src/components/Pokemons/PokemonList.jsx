@@ -98,7 +98,7 @@ export const PokemonList = () => {
       if (type) {
         saveData = data.pokemon.map((p) => p.pokemon);
       } else if (searchPokemon) {
-        saveData = data.name;
+        saveData = [data.name];
         setIsOnePokemon(true);
         setPaginacionOff(true)
       } else {
@@ -117,7 +117,7 @@ export const PokemonList = () => {
 
   useEffect(() => {
     getDataPokemon();
-  }, [currentPage, type]);
+  }, [currentPage, type, searchPokemon]);
 
   useEffect(()=>{
     localStorage.setItem("page", currentPage)
@@ -154,7 +154,8 @@ export const PokemonList = () => {
     return <PokemonListSkeleton />;
   }
 
-  console.log(favoritesPokemons);
+  console.log(searchPokemon)
+  console.log(type)
 
   return (
     <>
