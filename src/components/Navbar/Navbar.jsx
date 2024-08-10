@@ -18,7 +18,6 @@ export const Navbar = ({ setSearchPokemon }) => {
         throw new Error("Error fetching types");
       }
       const data = await response.json();
-      console.log(data.results);
       setTypes(data.results);
     } catch (error) {
       console.error("Error fetching types:", error);

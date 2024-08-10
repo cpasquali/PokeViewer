@@ -153,9 +153,6 @@ export const PokemonList = ({ searchPokemon }) => {
     return <PokemonListSkeleton />;
   }
 
-  console.log(searchPokemon);
-  console.log(type);
-
   return (
     <>
       <NavbarFavoritePokemon
