@@ -111,7 +111,6 @@ export const Navbar = ({ setSearchPokemon }) => {
                 className={`nav-link toggle ${theme}`}
                 href="#"
                 role="button"
-                data-bs-toggle="dropdown"
                 aria-expanded="false"
                 onClick={toggleTheme}
               >
