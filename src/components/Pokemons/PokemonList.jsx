@@ -9,35 +9,33 @@ import { Paginacion } from "../Paginacion/Paginacion";
 import { Accordion } from "../Accordion/Accordion";
 import { ThemeContext } from "../../context/ThemeContext";
 import { TypePokemonContext } from "../../context/TypePokemonContext";
-import { SearchPokemonContext } from "../../context/SearchPokemonContext";
 
-export const PokemonList = () => {
+export const PokemonList = ({ searchPokemon }) => {
   const pokemonsSave = () => {
     const data = localStorage.getItem("localPokemons");
     return data ? JSON.parse(data) : [];
   };
 
   const currentPageSave = () => {
-    const dataPage = localStorage.getItem("page")
-    return dataPage ? JSON.parse(dataPage) : 0
-  }
+    const dataPage = localStorage.getItem("page");
+    return dataPage ? JSON.parse(dataPage) : 0;
+  };
 
-  const countPageSave = () =>{
-    const countPage = localStorage.getItem("countPage")
-    return countPage ? JSON.parse(countPage) : 1
-  }
+  const countPageSave = () => {
+    const countPage = localStorage.getItem("countPage");
+    return countPage ? JSON.parse(countPage) : 1;
+  };
 
   const [countPage, setCountPage] = useState(countPageSave);
   const [pokemonList, setPokemonList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isOnePokemon, setIsOnePokemon] = useState(false);
-  const [paginacionOff, setPaginacionOff] = useState(false)
-  const [error, setError] = useState(false)
-  const {theme} = useContext(ThemeContext)
+  const [paginacionOff, setPaginacionOff] = useState(false);
+  const [error, setError] = useState(false);
+  const { theme } = useContext(ThemeContext);
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
-  const [currentPage, setCurrentPage] = useState(currentPageSave)
-  const {type} = useContext(TypePokemonContext)
-  const {searchPokemon} = useContext(SearchPokemonContext)
+  const [currentPage, setCurrentPage] = useState(currentPageSave);
+  const { type } = useContext(TypePokemonContext);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${currentPage}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
   const API_URL_BY_NAME = `https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`;
@@ -98,16 +96,16 @@ export const PokemonList = () => {
       if (type) {
         saveData = data.pokemon.map((p) => p.pokemon);
       } else if (searchPokemon) {
-        saveData = [data.name];
+        saveData = data.name;
         setIsOnePokemon(true);
-        setPaginacionOff(true)
+        setPaginacionOff(true);
       } else {
         saveData = data.results;
       }
       setPokemonList(saveData);
     } catch (error) {
-      setError(true)
-      setPaginacionOff(true)
+      setError(true);
+      setPaginacionOff(true);
       console.error("Error fetching data...", error);
       setPokemonList([]);
     } finally {
@@ -117,15 +115,15 @@ export const PokemonList = () => {
 
   useEffect(() => {
     getDataPokemon();
-  }, [currentPage, type, searchPokemon]);
+  }, [currentPage, type]);
 
-  useEffect(()=>{
-    localStorage.setItem("page", currentPage)
-  },[currentPage])
+  useEffect(() => {
+    localStorage.setItem("page", currentPage);
+  }, [currentPage]);
 
   useEffect(() => {
     localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemons));
-    localStorage.setItem("countPage", JSON.stringify(countPage))
+    localStorage.setItem("countPage", JSON.stringify(countPage));
   }, [favoritesPokemons, countPage]);
 
   useEffect(() => {
@@ -140,7 +138,8 @@ export const PokemonList = () => {
     };
   }, [isOnePokemon]);
 
-  const classOnePokemon = isOnePokemon || error ? MAINCLASES.TRUE : MAINCLASES.FALSE;
+  const classOnePokemon =
+    isOnePokemon || error ? MAINCLASES.TRUE : MAINCLASES.FALSE;
   const classBack =
     countPage === 1 || type || searchPokemon ? STATUS.DISABLED : STATUS.ACTIVE;
   const classNext =
@@ -154,8 +153,8 @@ export const PokemonList = () => {
     return <PokemonListSkeleton />;
   }
 
-  console.log(searchPokemon)
-  console.log(type)
+  console.log(searchPokemon);
+  console.log(type);
 
   return (
     <>
