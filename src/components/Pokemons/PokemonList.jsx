@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { PokemonCard } from "./PokemonCard";
 import "../../App.css";
 import Swal from "sweetalert2";
-import { STATUS, MAINCLASES, POKEAVATAR } from "../../utils/utils";
+import { STATUS, MAINCLASES } from "../../utils/utils";
 import PokemonListSkeleton from "../../skeletons/PokemonListSkeleton";
 import { NavbarFavoritePokemon } from "../NavbarFavoritePokemon/NavbarFavoritePokemon";
 import { Paginacion } from "../Paginacion/Paginacion";
