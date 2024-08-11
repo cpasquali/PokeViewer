@@ -15,6 +15,10 @@
   color: #000000;
 }
 
+.container-fluid {
+  height: 50px;
+}
+
 .dropdown-item {
   cursor: pointer;
 }
