@@ -37,3 +37,7 @@
 .favorite-icon {
   z-index: 1030; /* Colocado por debajo de la navbar */
 }
+
+.btnDelete {
+  margin-left: 10px;
+}

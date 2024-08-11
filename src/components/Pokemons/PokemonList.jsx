@@ -187,6 +187,7 @@ export const PokemonList = ({ searchPokemon }) => {
       <NavbarFavoritePokemon
         favoritePokemon={favoritesPokemons}
         removeFavoritePokemon={removeFavoritePokemon}
+        setFavoritesPokemon={setFavoritesPokemon}
       />
       <main className={`${classOnePokemon} ${theme}`}>
         {searchPokemon && pokemonList ? (
