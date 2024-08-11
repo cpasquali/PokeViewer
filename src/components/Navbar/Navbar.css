@@ -6,6 +6,11 @@
   top: 0;
 }
 
+.nav-item {
+  font-size: 20px;
+  margin: 0; /* Elimina cualquier margen aplicado a los nav-items */
+}
+
 .navbar-toggler {
   border: none;
   background: transparent;
@@ -22,7 +27,7 @@
 }
 
 .nav-link {
-  margin-right: 20px;
+  margin: 0; /* Elimina el margen de los enlaces de navegación */
 }
 
 .navbar-brand {
@@ -75,4 +80,8 @@ nav.night .nav-link {
 
 .nav-link.toggle {
   font-size: 24px;
+}
+
+.dropdown-item {
+  cursor: pointer;
 }
