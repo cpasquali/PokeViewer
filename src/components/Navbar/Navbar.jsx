@@ -37,232 +37,120 @@ export const Navbar = ({ setSearchPokemon }) => {
     getType();
   }, []);
 
-  if (lenguaje === "english") {
-    return (
-      <nav className={`navbar navbar-expand-lg ${theme}`}>
-        <div className="container-fluid">
-          <Link className={`navbar-brand ${theme}`} to="/">
-            PokeViewer
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  className={`nav-link active ${theme}`}
-                  aria-current="page"
-                  to="/"
-                >
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className={`nav-link dropdown-toggle ${theme}`}
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  onClick={() => setSearchPokemon(null)}
-                >
-                  Types
-                </a>
-                <ul className="dropdown-menu">
-                  {types.map(
-                    (type) =>
-                      type.name !== "stellar" &&
-                      type.name !== "unknown" && (
-                        <li
-                          className="dropdown-item"
-                          key={type.name}
-                          onClick={() => setType(type.name)}
-                        >
-                          <a>{type.name}</a>
-                        </li>
-                      )
-                  )}
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onClick={() => setType(null)}
-                    >
-                      View All
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a
-                  className={`nav-link toggle ${theme}`}
-                  role="button"
-                  aria-expanded="false"
-                  onClick={toggleTheme}
-                >
-                  {theme === "light" ? (
-                    <ion-icon name="sunny-outline"></ion-icon>
-                  ) : (
-                    <ion-icon name="moon-outline"></ion-icon>
-                  )}
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={"nav-link toggle"}>
-                  <img
-                    className="nav-link image-flags"
-                    src={"flags/united-kingdom.png"}
-                    alt="spain-flag"
-                    onClick={toggleLenguaje}
-                  />
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                onChange={(e) => setValue(e.target.value)}
-                value={value}
-              />
-              <button className="btn btn-outline-success" onClick={handleInput}>
-                Search
-              </button>
-            </form>
-          </div>
+  return (
+    <nav className={`navbar navbar-expand-lg ${theme}`}>
+      <div className="container-fluid">
+        <Link className={`navbar-brand ${theme}`} to="/">
+          PokeViewer
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link
+                className={`nav-link active ${theme}`}
+                aria-current="page"
+                to="/"
+              >
+                {lenguaje === "english" ? "Home" : "Inicio"}
+              </Link>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className={`nav-link dropdown-toggle ${theme}`}
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                onClick={() => setSearchPokemon(null)}
+              >
+                {lenguaje === "english" ? "Types" : "Tipos"}
+              </a>
+              <ul className="dropdown-menu">
+                {types.map(
+                  (type) =>
+                    type.name !== "stellar" &&
+                    type.name !== "unknown" && (
+                      <li
+                        className="dropdown-item"
+                        key={type.name}
+                        onClick={() => setType(type.name)}
+                      >
+                        <a>{type.name}</a>
+                      </li>
+                    )
+                )}
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a
+                    className="dropdown-item"
+                    href="#"
+                    onClick={() => setType(null)}
+                  >
+                    {lenguaje === "english" ? "View All" : "Ver Todos"}
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+              </ul>
+            </li>
+            <li className="nav-item">
+              <a
+                className={`nav-link toggle ${theme}`}
+                role="button"
+                aria-expanded="false"
+                onClick={toggleTheme}
+              >
+                {theme === "light" ? (
+                  <ion-icon name="sunny-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="moon-outline"></ion-icon>
+                )}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className={"nav-link toggle"}>
+                <img
+                  className="nav-link image-flags"
+                  src={
+                    lenguaje === "english"
+                      ? "flags/united-kingdom.png"
+                      : "flags/spain.png"
+                  }
+                  alt={lenguaje === "english" ? "uk-flag" : "spain-flag"}
+                  onClick={toggleLenguaje}
+                />
+              </a>
+            </li>
+          </ul>
+          <form className="d-flex" role="search">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder={lenguaje === "english" ? "Search" : "Buscar"}
+              aria-label={lenguaje === "english" ? "Search" : "Buscar"}
+              onChange={(e) => setValue(e.target.value)}
+              value={value}
+            />
+            <button className="btn btn-outline-success" onClick={handleInput}>
+              {lenguaje === "english" ? "Search" : "Buscar"}
+            </button>
+          </form>
         </div>
-      </nav>
-    );
-  } else {
-    return (
-      <nav className={`navbar navbar-expand-lg ${theme}`}>
-        <div className="container-fluid">
-          <Link className={`navbar-brand ${theme}`} to="/">
-            PokeViewer
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Alternar navegación"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link
-                  className={`nav-link active ${theme}`}
-                  aria-current="page"
-                  to="/"
-                >
-                  Inicio
-                </Link>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className={`nav-link dropdown-toggle ${theme}`}
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  onClick={() => setSearchPokemon(null)}
-                >
-                  Tipos
-                </a>
-                <ul className="dropdown-menu">
-                  {types.map(
-                    (type) =>
-                      type.name !== "stellar" &&
-                      type.name !== "unknown" && (
-                        <li
-                          className="dropdown-item"
-                          key={type.name}
-                          onClick={() => setType(type.name)}
-                        >
-                          <a>{type.name}</a>
-                        </li>
-                      )
-                  )}
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a
-                      className="dropdown-item"
-                      href="#"
-                      onClick={() => setType(null)}
-                    >
-                      Ver Todos
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a
-                  className={`nav-link toggle ${theme}`}
-                  href="#"
-                  role="button"
-                  aria-expanded="false"
-                  onClick={toggleTheme}
-                >
-                  {theme === "light" ? (
-                    <ion-icon name="sunny-outline"></ion-icon>
-                  ) : (
-                    <ion-icon name="moon-outline"></ion-icon>
-                  )}
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className={"nav-link toggle"}>
-                  <img
-                    className="nav-link  image-flags"
-                    src={"/flags/spain.png"}
-                    alt="bandera-españa"
-                    onClick={toggleLenguaje}
-                  />
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Buscar"
-                onChange={(e) => setValue(e.target.value)}
-                value={value}
-              />
-              <button className="btn btn-outline-success" onClick={handleInput}>
-                Buscar
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    );
-  }
+      </div>
+    </nav>
+  );
 };
