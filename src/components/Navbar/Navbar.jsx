@@ -111,7 +111,6 @@ export const Navbar = ({ setSearchPokemon }) => {
               <li className="nav-item">
                 <a
                   className={`nav-link toggle ${theme}`}
-                  href="#"
                   role="button"
                   aria-expanded="false"
                   onClick={toggleTheme}
@@ -124,21 +123,14 @@ export const Navbar = ({ setSearchPokemon }) => {
                 </a>
               </li>
               <li className="nav-item">
-                {lenguaje === "english" ? (
+                <a className={"nav-link toggle"}>
                   <img
-                    className="nav-link  image-flags"
+                    className="nav-link image-flags"
                     src={"flags/united-kingdom.png"}
-                    alt="united-kingdom-flag"
-                    onClick={toggleLenguaje}
-                  />
-                ) : (
-                  <img
-                    className="nav-link  image-flags"
-                    src={"flags/spain.png"}
                     alt="spain-flag"
                     onClick={toggleLenguaje}
                   />
-                )}
+                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -245,21 +237,14 @@ export const Navbar = ({ setSearchPokemon }) => {
                 </a>
               </li>
               <li className="nav-item">
-                {lenguaje === "english" ? (
-                  <img
-                    className="nav-link  image-flags"
-                    src={"/flags/united-kingdom.png"}
-                    alt="bandera-reino-unido"
-                    onClick={toggleLenguaje}
-                  />
-                ) : (
+                <a className={"nav-link toggle"}>
                   <img
                     className="nav-link  image-flags"
                     src={"/flags/spain.png"}
                     alt="bandera-españa"
                     onClick={toggleLenguaje}
                   />
-                )}
+                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
