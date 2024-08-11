@@ -248,14 +248,14 @@ export const Navbar = ({ setSearchPokemon }) => {
                 {lenguaje === "english" ? (
                   <img
                     className="nav-link  image-flags"
-                    src={"../../../public/flags/united-kingdom.png"}
+                    src={"/flags/united-kingdom.png"}
                     alt="bandera-reino-unido"
                     onClick={toggleLenguaje}
                   />
                 ) : (
                   <img
                     className="nav-link  image-flags"
-                    src={"../../../public/flags/spain.png"}
+                    src={"/flags/spain.png"}
                     alt="bandera-españa"
                     onClick={toggleLenguaje}
                   />
