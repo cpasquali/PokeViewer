@@ -68,7 +68,6 @@ export const Navbar = ({ setSearchPokemon }) => {
             <li className="nav-item dropdown">
               <a
                 className={`nav-link dropdown-toggle ${theme}`}
-                href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -94,11 +93,7 @@ export const Navbar = ({ setSearchPokemon }) => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a
-                    className="dropdown-item"
-                    href="#"
-                    onClick={() => setType(null)}
-                  >
+                  <a className="dropdown-item" onClick={() => setType(null)}>
                     {lenguaje === "english" ? "View All" : "Ver Todos"}
                   </a>
                 </li>
