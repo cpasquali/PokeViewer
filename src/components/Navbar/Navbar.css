@@ -8,7 +8,7 @@
 
 .nav-item {
   font-size: 20px;
-  margin: 0; /* Elimina cualquier margen aplicado a los nav-items */
+  margin: 0;
 }
 
 .navbar-toggler {
@@ -27,7 +27,7 @@
 }
 
 .nav-link {
-  margin: 0; /* Elimina el margen de los enlaces de navegación */
+  margin: 0;
 }
 
 .navbar-brand {
@@ -49,12 +49,14 @@
   color: #000000;
 }
 
-.navbar.navbar-expand-lg.nigth,
+.navbar.navbar-expand-lg.nigth {
+  background-color: #1a1a2e;
+}
+
 .navbar-brand.nigth,
 .nav-link.active.nigth,
 .nav-link.dropdown-toggle.nigth,
 .nav-link.toggle.nigth {
-  background-color: #1a1a2e;
   color: #ffffff;
 }
 
