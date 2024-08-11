@@ -6,8 +6,8 @@
   color: black;
   border-radius: 15px;
   padding: 10px;
-  font-size: 24px;
   background-color: #ffec9f;
+  z-index: 1040; /* Colocado por debajo de la navbar */
 }
 
 .toggleBtn.nigth {
@@ -24,7 +24,16 @@
   position: fixed;
   top: 200px;
   right: 20px;
-  z-index: 0;
+  z-index: 1060; /* Asegúrate de que esté por encima del botón de favorito */
   border-radius: 8px;
   padding: 10px;
+}
+
+.navbar-favorites {
+  z-index: 1070; /* Asegúrate de que esté por encima de la navbar */
+  position: relative;
+}
+
+.favorite-icon {
+  z-index: 1030; /* Colocado por debajo de la navbar */
 }
