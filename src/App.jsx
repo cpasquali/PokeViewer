@@ -3,17 +3,8 @@ import { Switch, Route } from "wouter";
 import { Navbar } from "./components/Navbar/Navbar";
 import { PokemonDetails } from "./components/Pokemons/PokemonDetails";
 import { PokemonList } from "./components/Pokemons/PokemonList";
-import { ThemeProvider } from "./context/ThemeContext";
-import { TypePokemonProvider } from "./context/TypePokemonContext";
 import { useState } from "react";
-
-function AppProviders({ children }) {
-  return (
-    <ThemeProvider>
-      <TypePokemonProvider>{children}</TypePokemonProvider>
-    </ThemeProvider>
-  );
-}
+import { AppProviders } from "./components/AppProviders";
 
 function App() {
   const [searchPokemon, setSearchPokemon] = useState(null);
