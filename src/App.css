@@ -388,3 +388,9 @@ main.nigth {
 .paginacionOff {
   display: none;
 }
+
+@media (width <= 991px) {
+  main {
+    margin-top: 50px;
+  }
+}
