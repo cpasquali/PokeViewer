@@ -9,6 +9,7 @@ import { Paginacion } from "../Paginacion/Paginacion";
 import { Accordion } from "../Accordion/Accordion";
 import { ThemeContext } from "../../context/ThemeContext";
 import { TypePokemonContext } from "../../context/TypePokemonContext";
+import { SelectLenguajeContext } from "../../context/SelectLenguajeContext";
 
 export const PokemonList = ({ searchPokemon }) => {
   const pokemonsSave = () => {
@@ -36,6 +37,7 @@ export const PokemonList = ({ searchPokemon }) => {
   const [favoritesPokemons, setFavoritesPokemon] = useState(pokemonsSave);
   const [currentPage, setCurrentPage] = useState(currentPageSave);
   const { type } = useContext(TypePokemonContext);
+  const { lenguaje } = useContext(SelectLenguajeContext);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/?offset=${currentPage}&limit=20`;
   const API_URL_BY_TYPE = `https://pokeapi.co/api/v2/type/${type}`;
   const API_URL_BY_NAME = `https://pokeapi.co/api/v2/pokemon/${searchPokemon}/`;
@@ -54,20 +56,38 @@ export const PokemonList = ({ searchPokemon }) => {
   const addFavoritePokemon = (pokemon) => {
     const repetido = favoritesPokemons.some((p) => p === pokemon);
     if (repetido) {
-      Swal.fire({
-        title: "¡Error!",
-        text: `${pokemon.toUpperCase()} already added`,
-        icon: "warning",
-        confirmButtonText: "OK",
-      });
+      if (lenguaje === "english") {
+        Swal.fire({
+          title: "¡Error!",
+          text: `${pokemon.toUpperCase()} already added`,
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "¡Error!",
+          text: `${pokemon.toUpperCase()} ya está añadido`,
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+      }
     } else {
       setFavoritesPokemon((prevFavorite) => [...prevFavorite, pokemon]);
-      Swal.fire({
-        title: "¡Success!",
-        text: `${pokemon.toUpperCase()} has been added to your favorites.`,
-        icon: "success",
-        confirmButtonText: "OK",
-      });
+      if (lenguaje === "english") {
+        Swal.fire({
+          title: "¡Success!",
+          text: `${pokemon.toUpperCase()} has been added to your favorites.`,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      } else {
+        Swal.fire({
+          title: "¡Éxito!",
+          text: `${pokemon.toUpperCase()} ha sido añadido a tus favoritos.`,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      }
     }
   };
 
@@ -75,12 +95,21 @@ export const PokemonList = ({ searchPokemon }) => {
     setFavoritesPokemon((prevFavorite) =>
       prevFavorite.filter((poke) => poke !== pokemon)
     );
-    Swal.fire({
-      title: "¡Removed!",
-      text: `${pokemon.toUpperCase()} has been removed from your favorites.`,
-      icon: "warning",
-      confirmButtonText: "OK",
-    });
+    if (lenguaje === "english") {
+      Swal.fire({
+        title: "¡Removed!",
+        text: `${pokemon.toUpperCase()} has been removed from your favorites.`,
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+    } else {
+      Swal.fire({
+        title: "¡Eliminado!",
+        text: `${pokemon.toUpperCase()} ha sido eliminado de tus favoritos.`,
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   const getDataPokemon = async () => {
