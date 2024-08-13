@@ -17,7 +17,7 @@ function App() {
           path="/"
           component={() => <PokemonList searchPokemon={searchPokemon} />}
         />
-        <Route path="/pokemon/:id" component={PokemonDetails} />
+        <Route path="/pokemon/:name" component={PokemonDetails} />
       </Switch>
     </AppProviders>
   );
