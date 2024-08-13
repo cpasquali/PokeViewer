@@ -393,3 +393,104 @@ main.nigth {
     margin: 0px;
   }
 }
+
+.btnCardContainer{
+  display: flex;
+  gap: 15px;
+}
+
+.btn-link{
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.btn-link.normal {
+  background-color: #a8a77a;
+}
+
+.btn-link.fighting {
+  background-color: #c22e28;
+}
+
+.btn-link.flying {
+  background-color: #a98ff3;
+}
+
+.btn-link.poison {
+  background-color: #a33ea1;
+}
+
+.btn-link.ground {
+  background-color: #e2bf65;
+}
+
+.btn-link.rock {
+  background-color: #b6a136;
+}
+
+.btn-link.bug {
+  background-color: #a6b91a;
+}
+
+.btn-link.ghost {
+  background-color: #735797;
+}
+
+.btn-link.steel {
+  background-color: #b7b7ce;
+}
+
+.btn-link.fire {
+  background-color: #ee8130;
+}
+
+.btn-link.water {
+  background-color: #6390f0;
+}
+
+.btn-link.grass {
+  background-color: #7ac74c;
+}
+
+.btn-link.electric {
+  background-color: #f7d02c;
+}
+
+.btn-link.psychic {
+  background-color: #f95587;
+}
+
+.btn-link.ice {
+  background-color: #96d9d6;
+}
+
+.btn-link.dragon {
+  background-color: #6f35fc;
+}
+
+.btn-link.dark {
+  background-color: #705746;
+}
+
+.btn-link.fairy {
+  background-color: #d685ad;
+}
+
+.btn-link.stellar {
+  background-color: #ffd700;
+}
+
+.btn-link:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.btn-link:active {
+  background-color: #5c5c5c;
+  transform: scale(1);
+}

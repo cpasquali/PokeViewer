@@ -1,7 +1,7 @@
 import "./App.css";
 import { Switch, Route } from "wouter";
 import { Navbar } from "./components/Navbar/Navbar";
-import { PokemonDetails } from "./components/Pokemons/PokemonDetails";
+import { PokemonDetails } from "./components/Pokemons/PokemonDetails/PokemonDetails";
 import { PokemonList } from "./components/Pokemons/PokemonList";
 import { useState } from "react";
 import { AppProviders } from "./components/AppProviders";

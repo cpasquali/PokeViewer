@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import PokemonCardSkeleton from "../../skeletons/PokemonCardSkeleton";
 import "../../App.css";
 import { SelectLenguajeContext } from "../../context/SelectLenguajeContext";
+import { Link } from "wouter";
 
 export const PokemonCard = ({
   name,
@@ -79,6 +80,7 @@ export const PokemonCard = ({
         >
           See Skills
         </button>
+        <section className="btnCardContainer">
         {addFavoritePokemon ? (
           <button
             className={`btn-hability favorite ${pokemonType}`}
@@ -96,6 +98,8 @@ export const PokemonCard = ({
         ) : (
           ""
         )}
+        <Link to={`/pokemon/${name}`} className={`btn-link ${pokemonType}`}>See</Link>
+        </section>
       </section>
     );
   } else {
@@ -133,23 +137,26 @@ export const PokemonCard = ({
       >
         Ver Habilidades
       </button>
-      {addFavoritePokemon ? (
-        <button
-          className={`btn-hability favorite ${pokemonType}`}
-          onClick={() => addFavoritePokemon(pokemonData.name)}
-        >
-          <ion-icon name="heart-outline"></ion-icon>
-        </button>
-      ) : deleteFavoritePokemon ? (
-        <button
-          className={`btn-hability favorite ${pokemonType}`}
-          onClick={() => deleteFavoritePokemon(pokemonData.name)}
-        >
-          <ion-icon name="heart-dislike-outline"></ion-icon>
-        </button>
-      ) : (
-        ""
-      )}
-    </section>
+      <section className="btnCardContainer">
+        {addFavoritePokemon ? (
+          <button
+            className={`btn-hability favorite ${pokemonType}`}
+            onClick={() => addFavoritePokemon(pokemonData.name)}
+          >
+            <ion-icon name="heart-outline"></ion-icon>
+          </button>
+        ) : deleteFavoritePokemon ? (
+          <button
+            className={`btn-hability favorite ${pokemonType}`}
+            onClick={() => deleteFavoritePokemon(pokemonData.name)}
+          >
+            <ion-icon name="heart-dislike-outline"></ion-icon>
+          </button>
+        ) : (
+          ""
+        )}
+        <Link to={`/pokemon/${name}`} className={`btn-link ${pokemonType}`}>Ver</Link>
+        </section>
+      </section>
   );
 };
