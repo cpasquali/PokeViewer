@@ -57,13 +57,13 @@ export const Navbar = ({ setSearchPokemon }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
+              <a
                 className={`nav-link active ${theme}`}
                 aria-current="page"
-                to="/"
+                onClick={() => setType(null)}
               >
                 {lenguaje === "english" ? "Home" : "Inicio"}
-              </Link>
+              </a>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -89,17 +89,6 @@ export const Navbar = ({ setSearchPokemon }) => {
                       </li>
                     )
                 )}
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" onClick={() => setType(null)}>
-                    {lenguaje === "english" ? "View All" : "Ver Todos"}
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
               </ul>
             </li>
             <li className="nav-item">
