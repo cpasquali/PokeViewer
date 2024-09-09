@@ -66,8 +66,8 @@ export const PokemonDetails = ({ params }) => {
             </section>
           </>
         )}
-        <Link to="/">Go Back</Link>
       </div>
+      <Link to="/">Go Back</Link>
     </main>
   );
 };
