@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  background-color: #ffec9fa5;
 }
 
 main {
@@ -10,13 +11,6 @@ main {
   justify-content: center;
   gap: 20px;
   padding: 20px;
-  background-color: #ffec9fa5;
-}
-
-.loading {
-  font-size: 2em;
-  color: #555;
-  margin-top: 50px;
 }
 
 .loading {

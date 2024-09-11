@@ -2,7 +2,6 @@ import "./Paginacion.css";
 import { PAGINACIONOFF } from "../../utils/utils";
 import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
-import { SelectLenguajeContext } from "../../context/SelectLenguajeContext";
 
 export const Paginacion = ({
   backPage,
@@ -18,9 +17,8 @@ export const Paginacion = ({
   const classPaginacion = paginacionOff
     ? PAGINACIONOFF.TRUE
     : `paginacion ${theme}`;
-  const { lenguaje } = useContext(SelectLenguajeContext);
 
-  if (lenguaje === "english") {
+
     return (
       <section className={classPaginacion}>
         <button
@@ -40,25 +38,4 @@ export const Paginacion = ({
         </button>
       </section>
     );
-  } else {
-    return (
-      <section className={classPaginacion}>
-        <button
-          onClick={backPage}
-          className={`btn ${classBack} ${theme}`}
-          disabled={disabledBackButton}
-        >
-          Anterior
-        </button>
-        <p>{countPage}</p>
-        <button
-          onClick={nextPage}
-          className={`btn ${classNext} ${theme}`}
-          disabled={disabledNextButton}
-        >
-          Siguiente
-        </button>
-      </section>
-    );
-  }
 };

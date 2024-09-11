@@ -4,9 +4,9 @@ import "./PokemonDetails.css";
 
 export const PokemonDetails = ({ params }) => {
   const { name } = params;
-  const [idPokemon, setIdPokemon] = useState(name);
+  const [namePokeon] = useState(name);
   const [pokemonData, setPokemonData] = useState(null);
-  const API_URL = `https://pokeapi.co/api/v2/pokemon/${idPokemon}/`;
+  const API_URL = `https://pokeapi.co/api/v2/pokemon/${namePokeon}/`;
   const pokemonType =
     pokemonData && pokemonData.types ? pokemonData.types[0].type.name : "";
 
@@ -25,25 +25,18 @@ export const PokemonDetails = ({ params }) => {
 
   useEffect(() => {
     getDataPokemonById();
-  }, [idPokemon]);
+  }, [namePokeon]);
 
   return (
     <main className={`main-pokemon-details`}>
       <div className={`pokemon-details ${pokemonType}`}>
         {pokemonData && (
           <>
-            <section className="info-pokemon">
-              <img
-                src={pokemonData.sprites.front_default}
-                alt={`imagen de ${pokemonData.name}`}
-                className="poke-img front"
-              />
-              <img
-                src={pokemonData.sprites.back_default}
-                alt={`imagen de ${pokemonData.name}`}
-                className="poke-img back"
-              />
-            </section>
+            <img
+              src={pokemonData.sprites.front_default}
+              alt={`imagen de ${pokemonData.name}`}
+              className="poke-img front"
+            />
             <section>
               {pokemonData.stats.map((hability, index) => (
                 <section key={index} className="habilities-pokemon">
@@ -63,11 +56,11 @@ export const PokemonDetails = ({ params }) => {
                   </div>
                 </section>
               ))}
+              <Link className="go-back-button" to="/">🔙</Link>
             </section>
           </>
         )}
       </div>
-      <Link to="/">Go Back</Link>
     </main>
   );
 };

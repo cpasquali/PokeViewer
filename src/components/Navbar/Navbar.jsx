@@ -3,7 +3,6 @@ import "./Navbar.css";
 import { Link } from "wouter";
 import { ThemeContext } from "../../context/ThemeContext";
 import { TypePokemonContext } from "../../context/TypePokemonContext";
-import { SelectLenguajeContext } from "../../context/SelectLenguajeContext";
 
 export const Navbar = ({ setSearchPokemon }) => {
   const API_URL = "https://pokeapi.co/api/v2/type/";
@@ -11,7 +10,6 @@ export const Navbar = ({ setSearchPokemon }) => {
   const [value, setValue] = useState("");
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { setType } = useContext(TypePokemonContext);
-  const { lenguaje, toggleLenguaje } = useContext(SelectLenguajeContext);
 
   const getType = async () => {
     try {
@@ -62,7 +60,7 @@ export const Navbar = ({ setSearchPokemon }) => {
                 aria-current="page"
                 onClick={() => setType(null)}
               >
-                {lenguaje === "english" ? "Home" : "Inicio"}
+                Home
               </a>
             </li>
             <li className="nav-item dropdown">
@@ -73,7 +71,7 @@ export const Navbar = ({ setSearchPokemon }) => {
                 aria-expanded="false"
                 onClick={() => setSearchPokemon(null)}
               >
-                {lenguaje === "english" ? "Types" : "Tipos"}
+                Types
               </a>
               <ul className="dropdown-menu">
                 {types.map(
@@ -105,32 +103,18 @@ export const Navbar = ({ setSearchPokemon }) => {
                 )}
               </a>
             </li>
-            <li className="nav-item">
-              <a className={"nav-link toggle"}>
-                <img
-                  className="nav-link image-flags"
-                  src={
-                    lenguaje === "english"
-                      ? "flags/united-kingdom.png"
-                      : "flags/spain.png"
-                  }
-                  alt={lenguaje === "english" ? "uk-flag" : "spain-flag"}
-                  onClick={toggleLenguaje}
-                />
-              </a>
-            </li>
           </ul>
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
-              placeholder={lenguaje === "english" ? "Search" : "Buscar"}
-              aria-label={lenguaje === "english" ? "Search" : "Buscar"}
+              placeholder="Search"
+              aria-label="english"
               onChange={(e) => setValue(e.target.value)}
               value={value}
             />
             <button className="btn btn-outline-success" onClick={handleInput}>
-              {lenguaje === "english" ? "Search" : "Buscar"}
+              Search
             </button>
           </form>
         </div>
