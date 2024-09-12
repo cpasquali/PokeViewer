@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "wouter";
+import { ThemeContext } from "../../../context/ThemeContext";
 import "./PokemonDetails.css";
 
 export const PokemonDetails = ({ params }) => {
   const { name } = params;
   const [namePokeon] = useState(name);
   const [pokemonData, setPokemonData] = useState(null);
+  const { theme } = useContext(ThemeContext)
   const API_URL = `https://pokeapi.co/api/v2/pokemon/${namePokeon}/`;
   const pokemonType =
     pokemonData && pokemonData.types ? pokemonData.types[0].type.name : "";
@@ -28,7 +30,7 @@ export const PokemonDetails = ({ params }) => {
   }, [namePokeon]);
 
   return (
-    <main className={`main-pokemon-details`}>
+    <main className={`main-pokemon-details ${theme}`}>
       <div className={`pokemon-details ${pokemonType}`}>
         {pokemonData && (
           <>
@@ -37,7 +39,7 @@ export const PokemonDetails = ({ params }) => {
               alt={`imagen de ${pokemonData.name}`}
               className="poke-img front"
             />
-            <section>
+            <section className={`containt ${theme}`}>
               {pokemonData.stats.map((hability, index) => (
                 <section key={index} className="habilities-pokemon">
                   <p>{hability.stat.name}</p>
@@ -56,7 +58,7 @@ export const PokemonDetails = ({ params }) => {
                   </div>
                 </section>
               ))}
-              <Link className="go-back-button" to="/">🔙</Link>
+              <Link className={`go-back-button ${theme}`} to="/"><ion-icon className={`icon-color ${theme}`} name="arrow-back-circle-outline"></ion-icon></Link>
             </section>
           </>
         )}
