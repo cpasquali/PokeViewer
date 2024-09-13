@@ -89,4 +89,23 @@
   width: 100%;
 }
 
+@media (width <= 375px){
+  .progress{
+    width: 150px;
+  }
 
+  p{
+    font-size: 80%;
+  }
+
+  .btn-container{
+    flex-direction: column;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-favorite{
+    height: 60px;
+  }
+}
