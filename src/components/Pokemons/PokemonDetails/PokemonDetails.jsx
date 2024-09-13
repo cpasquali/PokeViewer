@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "wouter";
+import Swal from "sweetalert2";
 import { ThemeContext } from "../../../context/ThemeContext";
 import "./PokemonDetails.css";
 
@@ -11,6 +12,22 @@ export const PokemonDetails = ({ params }) => {
   const API_URL = `https://pokeapi.co/api/v2/pokemon/${namePokeon}/`;
   const pokemonType =
     pokemonData && pokemonData.types ? pokemonData.types[0].type.name : "";
+
+  const getDataFromLocalStorage = () => {
+    const data = localStorage.getItem("localPokemons")
+    return data ? JSON.parse(data) : []
+  }
+
+  const [favoritesPokemon, setFavoritesPokemon] = useState(getDataFromLocalStorage)
+
+  const removePokemonFromFavorites = (pokemon) => {
+    const newFavorites = favoritesPokemon.filter((p) => p !== pokemon)
+    setFavoritesPokemon(newFavorites)
+  }
+
+  const addFavoritePokemon = (pokemon) => {
+    setFavoritesPokemon((prevFavorite) => [...prevFavorite, pokemon]);
+  };
 
   const getDataPokemonById = async () => {
     try {
@@ -24,6 +41,10 @@ export const PokemonDetails = ({ params }) => {
       console.error("Error fetching data...");
     }
   };
+
+  useEffect(()=>{
+    localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemon))
+  },[favoritesPokemon])
 
   useEffect(() => {
     getDataPokemonById();
@@ -58,7 +79,12 @@ export const PokemonDetails = ({ params }) => {
                   </div>
                 </section>
               ))}
-              <Link className={`go-back-button ${theme}`} to="/"><ion-icon className={`icon-color ${theme}`} name="arrow-back-circle-outline"></ion-icon></Link>
+              <div className="btn-container">
+                <Link className={`go-back-button ${theme}`} to="/"><ion-icon className={`icon-color ${theme}`} name="arrow-back-circle-outline"></ion-icon></Link>
+                {
+                  favoritesPokemon.includes(pokemonData.name) ?   (<button onClick={()=>removePokemonFromFavorites(pokemonData.name)} className="btn-favorite">Eliminar de Favoritos</button>) : (<button onClick={()=>addFavoritePokemon(pokemonData.name)} className="btn-favorite">Añadir a Favoritos</button>)
+                }
+              </div>
             </section>
           </>
         )}

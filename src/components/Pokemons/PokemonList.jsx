@@ -159,7 +159,7 @@ export const PokemonList = ({ searchPokemon }) => {
         removeFavoritePokemon={removeFavoritePokemon}
         setFavoritesPokemon={setFavoritesPokemon}
       />
-      <main className={`${classOnePokemon} ${theme}`}>
+      <main className={`pokemon-list-container ${classOnePokemon} ${theme}`}>
         {searchPokemon && pokemonList ? (
           favoritesPokemons.includes(pokemonList) ? (
             <PokemonCard

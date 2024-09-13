@@ -5,7 +5,7 @@ body {
   background-color: #ffec9fa5;
 }
 
-main {
+.pokemon-list-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
