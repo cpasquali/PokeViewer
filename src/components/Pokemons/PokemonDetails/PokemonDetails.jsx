@@ -82,7 +82,7 @@ export const PokemonDetails = ({ params }) => {
               <div className="btn-container">
                 <Link className={`go-back-button ${theme}`} to="/"><ion-icon className={`icon-color ${theme}`} name="arrow-back-circle-outline"></ion-icon></Link>
                 {
-                  favoritesPokemon.includes(pokemonData.name) ?   (<button onClick={()=>removePokemonFromFavorites(pokemonData.name)} className="btn-favorite">Eliminar de Favoritos</button>) : (<button onClick={()=>addFavoritePokemon(pokemonData.name)} className="btn-favorite">Añadir a Favoritos</button>)
+                  favoritesPokemon.includes(pokemonData.name) ?   (<button onClick={()=>removePokemonFromFavorites(pokemonData.name)} className={`btn-favorite ${theme}`}>Eliminar de Favoritos</button>) : (<button onClick={()=>addFavoritePokemon(pokemonData.name)} className={`btn-favorite ${theme}`}>Añadir a Favoritos</button>)
                 }
               </div>
             </section>
