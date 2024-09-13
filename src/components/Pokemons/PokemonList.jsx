@@ -55,13 +55,18 @@ export const PokemonList = ({ searchPokemon }) => {
     if (repetido) {
         Swal.fire({
           title: "¡Error!",
-          text: `${pokemon.toUpperCase()} already added`,
+          text: `${pokemon.toUpperCase()} was added successfully!`,
           icon: "warning",
           confirmButtonText: "OK",
         });
       
     } else {
       setFavoritesPokemon((prevFavorite) => [...prevFavorite, pokemon]);
+      Swal.fire({
+        title: "Good job!",
+        text: "You clicked the button!",
+        icon: "success"
+      });
     }
   };
 
