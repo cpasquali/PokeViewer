@@ -1,9 +1,17 @@
+/* PokemonDetails.css */
+
+/* Asegúrate de que el contenedor principal ocupe todo el alto de la pantalla */
 .main-pokemon-details {
-  height: 100vh;
-  padding: 20px;
+  padding: 0; /* Elimina el padding para ocupar el 100% del alto */
+  margin: 0; /* Elimina el margen para ocupar el 100% del alto */
+  height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+  display: flex;
+  flex-direction: column;
   transition: background-color 0.3s ease;
 }
 
+/* Colores para el tema oscuro y claro */
 .main-pokemon-details.nigth {
   background-color: #1e2a38;
 }
@@ -12,8 +20,9 @@
   background-color: #ffec9fa5; /* Tema claro */
 }
 
+/* Contenedor de detalles del Pokémon */
 .pokemon-details {
-  margin: 0;
+  margin: 0; /* Elimina el margen para ajustar el tamaño al 100% */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,9 +30,10 @@
   padding: 20px;
   border-radius: 15px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ocupa el 100% del ancho del contenedor principal */
 }
 
+/* Colores para el tema oscuro y claro */
 .pokemon-details.nigth {
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -32,6 +42,7 @@
   background-color: #fef6d9; /* Fondo ligeramente contrastante para el tema claro */
 }
 
+/* Botón de volver */
 .go-back-button {
   font-size: 45px;
   transition: transform 0.3s, color 0.3s ease;
@@ -53,6 +64,7 @@
   transform: scale(0.9);
 }
 
+/* Habilidades del Pokémon */
 .habilities-pokemon {
   display: flex;
   flex-direction: row;
@@ -63,6 +75,7 @@
   padding: 10px;
 }
 
+/* Contenedor de detalles */
 .containt {
   display: flex;
   flex-direction: column;
@@ -70,8 +83,10 @@
   justify-content: center;
   gap: 15px;
   transition: color 0.3s ease;
+  width: 100%; /* Ocupa el 100% del ancho del contenedor */
 }
 
+/* Colores para el tema oscuro y claro */
 .containt.nigth {
   color: #ffffff;
 }
@@ -80,6 +95,7 @@
   color: #333333;
 }
 
+/* Barra de progreso */
 .progress {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
@@ -99,6 +115,7 @@
   transition: width 2s ease-out;
 }
 
+/* Contenedor de botones */
 .btn-container {
   display: flex;
   gap: 20px;
@@ -106,6 +123,7 @@
   margin-top: 15px;
 }
 
+/* Botón de favoritos */
 .btn-favorite {
   border: 3px solid #2795c0;
   border-radius: 20px;
@@ -137,6 +155,7 @@
   transform: scale(0.9);
 }
 
+/* Imagen del Pokémon */
 .poke-img {
   width: 220px;
   height: auto;
@@ -149,6 +168,7 @@
   opacity: 0.9;
 }
 
+/* Estilos para dispositivos móviles */
 @media (max-width: 375px) {
   .progress {
     width: 150px;

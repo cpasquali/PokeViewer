@@ -8,22 +8,24 @@ export const PokemonDetails = ({ params }) => {
   const { name } = params;
   const [namePokeon] = useState(name);
   const [pokemonData, setPokemonData] = useState(null);
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   const API_URL = `https://pokeapi.co/api/v2/pokemon/${namePokeon}/`;
   const pokemonType =
     pokemonData && pokemonData.types ? pokemonData.types[0].type.name : "";
 
   const getDataFromLocalStorage = () => {
-    const data = localStorage.getItem("localPokemons")
-    return data ? JSON.parse(data) : []
-  }
+    const data = localStorage.getItem("localPokemons");
+    return data ? JSON.parse(data) : [];
+  };
 
-  const [favoritesPokemon, setFavoritesPokemon] = useState(getDataFromLocalStorage)
+  const [favoritesPokemon, setFavoritesPokemon] = useState(
+    getDataFromLocalStorage
+  );
 
   const removePokemonFromFavorites = (pokemon) => {
-    const newFavorites = favoritesPokemon.filter((p) => p !== pokemon)
-    setFavoritesPokemon(newFavorites)
-  }
+    const newFavorites = favoritesPokemon.filter((p) => p !== pokemon);
+    setFavoritesPokemon(newFavorites);
+  };
 
   const addFavoritePokemon = (pokemon) => {
     setFavoritesPokemon((prevFavorite) => [...prevFavorite, pokemon]);
@@ -42,9 +44,9 @@ export const PokemonDetails = ({ params }) => {
     }
   };
 
-  useEffect(()=>{
-    localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemon))
-  },[favoritesPokemon])
+  useEffect(() => {
+    localStorage.setItem("localPokemons", JSON.stringify(favoritesPokemon));
+  }, [favoritesPokemon]);
 
   useEffect(() => {
     getDataPokemonById();
@@ -80,10 +82,27 @@ export const PokemonDetails = ({ params }) => {
                 </section>
               ))}
               <div className="btn-container">
-                <Link className={`go-back-button ${theme}`} to="/"><ion-icon className={`icon-color ${theme}`} name="arrow-back-circle-outline"></ion-icon></Link>
-                {
-                  favoritesPokemon.includes(pokemonData.name) ?   (<button onClick={()=>removePokemonFromFavorites(pokemonData.name)} className={`btn-favorite ${theme}`}>Eliminar de Favoritos</button>) : (<button onClick={()=>addFavoritePokemon(pokemonData.name)} className={`btn-favorite ${theme}`}>Añadir a Favoritos</button>)
-                }
+                <Link className={`go-back-button ${theme}`} to="/">
+                  <ion-icon
+                    className={`icon-color ${theme}`}
+                    name="arrow-back-circle-outline"
+                  ></ion-icon>
+                </Link>
+                {favoritesPokemon.includes(pokemonData.name) ? (
+                  <button
+                    onClick={() => removePokemonFromFavorites(pokemonData.name)}
+                    className={`btn-favorite ${theme}`}
+                  >
+                    Eliminar de Favoritos
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => addFavoritePokemon(pokemonData.name)}
+                    className={`btn-favorite ${theme}`}
+                  >
+                    Añadir a Favoritos
+                  </button>
+                )}
               </div>
             </section>
           </>
