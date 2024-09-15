@@ -387,12 +387,12 @@ main.nigth {
   }
 }
 
-.btnCardContainer{
+.btnCardContainer {
   display: flex;
   gap: 15px;
 }
 
-.btn-link{
+.btn-link {
   border: none;
   border-radius: 5px;
   color: #fff;
