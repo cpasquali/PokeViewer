@@ -5,6 +5,7 @@
   align-items: center;
   background-color: #ffec9f;
   height: 100px;
+  flex-shrink: 0;
 }
 
 .paginacion.nigth {

@@ -1,0 +1,16 @@
+.main-post-list {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  flex: 1;
+}
+
+.pokemon-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 20px;
+  padding: 20px 0;
+}

@@ -1,23 +1,17 @@
 import "./App.css";
 import { Switch, Route } from "wouter";
 import { Navbar } from "./components/Navbar/Navbar";
-import { PokemonDetails } from "./components/Pokemons/PokemonDetails/PokemonDetails";
-import { PokemonList } from "./components/Pokemons/PokemonList";
-import { useState } from "react";
+import { MainContent } from "./pages/MainContent/MainContent";
+import { PokemonDetails } from "./pages/PokemonDetails/PokemonDetails";
 import { AppProviders } from "./components/AppProviders";
 
 function App() {
-  const [searchPokemon, setSearchPokemon] = useState(null);
-
   return (
     <AppProviders>
-      <Navbar setSearchPokemon={setSearchPokemon} />
+      <Navbar />
       <Switch>
-        <Route
-          path="/"
-          component={() => <PokemonList searchPokemon={searchPokemon} />}
-        />
-        <Route path="/pokemon/:name" component={PokemonDetails} />
+        <Route path="/" component={() => <MainContent />} />
+        <Route path="/pokemon/:name" component={PokemonDetails} /> *
       </Switch>
     </AppProviders>
   );
